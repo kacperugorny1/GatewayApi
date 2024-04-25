@@ -28,12 +28,12 @@ namespace HttpOnlyTest.Controllers
             }
         }
         [HttpPost("NewData")]
-        public IActionResult NewData(string num, double latitude, double longitude)
+        public IActionResult NewData(string num, double latitude, double longitude, double temp, double humi)
         {
             HttpClient client = new HttpClient();
             using(StreamWriter fs = new("/home/contents.txt",true))
             {
-                fs.WriteLine(num + $": long:{longitude}; lat:{latitude}");
+                fs.WriteLine(num + $": long:{longitude}; lat:{latitude}; temp:{temp}; humi:{humi}");
             }
 
             return Ok();
